@@ -9,77 +9,28 @@
 ### Share data from child to parent using emit
 - child component
 ```sh
-<script>
-  export default{
-    name : 'Child',
     methods : {
     onInput: function(e) {
       This.$emit( "inputChange" , e.target.value );
     }
-}
-</script>
-```
-- parent component
-```sh
-<template>
-  <div>
-    <Child v-on:inputChange="getInputVal" />
-  </div>
-</template>
-
-<scrip>
-export default{
-  name: "App",
-  components: {
-    Child
-  },
-  methods: {
-    getInputVal: function(inputVal) {
-      console.log(inputVal);
-    }
-  }
-}
-</script>
 ```
 ### Fetch API data using axios
 ```sh
-<script>
-  import axios from "axios";
-export default {
-  name : "App",
-  data(){
-    return{
-      data : null
-    }
-  },
   methods : {
      onFetchData : function(){
        axios.get("/API-URL").then(res => {
-         return this.data = res.data.length
+         console.log(res)
          })
      }
-  }
-}
-</script>
 ```
 ### Share data from parent to child using props
 - parent component
 ```sh
-
 <template>
  <div>
    <Child v-bind:data="data"/>
  </div>
 </template>
-```
- - child component
- ```sh
- <script>
-export default {
-   name:'Child',
-   props : ['data']
-};
-</script>
 ```
 ### Using vue-router library
 - import the router library
