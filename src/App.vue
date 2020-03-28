@@ -3,6 +3,7 @@
     <h2>App Component</h2>
     <SearchInput v-on:inputChange="onInputChange" />
     <button @click="onFetchData">get data</button>
+    <h4>users number {{ users }}</h4>
   </div>
 </template>
 
@@ -12,6 +13,11 @@ import axios from "axios";
 
 export default {
   name: "App",
+  data() {
+    return {
+      users: null
+    };
+  },
   components: {
     SearchInput
   },
@@ -20,9 +26,10 @@ export default {
       console.log("value from parent", value);
     },
     onFetchData: function() {
-      axios
-        .get("https://jsonplaceholder.typicode.com/users")
-        .then(res => console.log(res.data));
+      axios.get("https://jsonplaceholder.typicode.com/users").then(res => {
+        console.log(res.data);
+        return (this.users = res.data.length);
+      });
     }
   },
   computed: {}
@@ -30,7 +37,7 @@ export default {
 </script>
 
 <style>
-*{
+* {
   margin: 2%;
 }
 </style>
