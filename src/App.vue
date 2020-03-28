@@ -1,9 +1,12 @@
 <template>
   <div>
     <h2>App Component</h2>
-    <SearchInput v-on:inputChange="onInputChange" />
+    <SearchInput 
+    v-on:inputChange="onInputChange" 
+    v-bind:users="users"
+    />
     <button @click="onFetchData">get data</button>
-    <h4>users number {{ users }}</h4>
+    <!-- <h4>users number {{ users }}</h4> -->
   </div>
 </template>
 
