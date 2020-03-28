@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Input Component</h1>
+        <h3>Input Component</h3>
         <input type="text" v-on:input="onInputChange">
     </div>
 </template>
