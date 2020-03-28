@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-     <SearchInput/>
+     <SearchInput v-on:inputChange="onInputChange" />
   </div>
 </template>
 
@@ -11,7 +11,11 @@ export default {
   name: 'App',
   components: {
     SearchInput
-    
+  },
+  methods : {
+    onInputChange : function(value){
+      console.log("value from parent",value)
+    }
   }
 }
 </script>
